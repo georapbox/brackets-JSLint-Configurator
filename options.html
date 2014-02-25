@@ -1,0 +1,52 @@
+<div class="jslint-settings-dialog modal">
+    <div class="modal-header">
+        <h1 class="dialog-title">JSLint Options</h1>
+    </div>
+    <div class="modal-body" style="height:250px;">
+        <div class="field-container clearfix">
+            <p><a id="toggleAll" href="#">Select all</a></p>
+            
+            <label style="display:block;"><input style="margin-right:5px;" type="checkbox" value="ass: true"><strong>ass</strong> - Tolerate assignment expressions</label>
+            <label><input style="margin-right:5px;" type="checkbox" value="bitwise: true"><strong>bitwise</strong> - Tolerate bitwise operators</label>
+            <label><input style="margin-right:5px;" type="checkbox" value="browser: true"><strong>browser</strong> - Assume a browser</label>
+            <label><input style="margin-right:5px;" type="checkbox" value="closure: true"><strong>closure</strong> - Tolerate <a href="https://developers.google.com/closure/">Google Closure</a> idioms</label>
+  			<label><input style="margin-right:5px;" type="checkbox" value="continue: true"><strong>continue</strong> - Tolerate continue</label>
+        	<label><input style="margin-right:5px;" type="checkbox" value="couch: true"><strong>couch</strong> - Assume <a href="http://couchdb.apache.org/">CouchDB</a></label>
+        	<label><input style="margin-right:5px;" type="checkbox" value="debug: true"><strong>debug</strong> - Tolerate debugger statements</label>
+        	<label><input style="margin-right:5px;" type="checkbox" value="devel: true"><strong>devel</strong> - Assume console, alert, ...</label>
+        	<label><input style="margin-right:5px;" type="checkbox" value="eqeq: true"><strong>eqeq</strong> - Tolerate == and !=</label>
+        	<label><input style="margin-right:5px;" type="checkbox" value="evil: true"><strong>evil</strong> - Tolerate eval</label>
+        	<label><input style="margin-right:5px;" type="checkbox" value="forin: true"><strong>forin</strong> - Tolerate unfiltered for in </label>
+        	<label><input style="margin-right:5px;" type="checkbox" value="indent: 4"><strong>indent</strong> - Strict white space indentation (default is 4)</label>
+        	<label><input style="margin-right:5px;" type="checkbox" value="maxerr: 50"><strong>maxerr</strong> - Maximum number of errors (default is 50)</label>
+        	<label><input style="margin-right:5px;" type="checkbox" value="maxlen: 250"><strong>maxlen</strong> - Maximum line length (default is 250)</label>
+        	<label><input style="margin-right:5px;" type="checkbox" value="newcap: true"><strong>newcap</strong> - Tolerate uncapitalized constructors</label>
+        	<label><input style="margin-right:5px;" type="checkbox" value="node: true"><strong>node</strong> - Assume <a href="http://nodejs.org/">Node.js</a></label>
+        	<label><input style="margin-right:5px;" type="checkbox" value="nomen: true"><strong>nomen</strong> - Tolerate dangling _ in identifiers</label>
+        	<label><input style="margin-right:5px;" type="checkbox" value="passfail: true"><strong>passfail</strong> - Stop on first error</label>
+        	<label><input style="margin-right:5px;" type="checkbox" value="plusplus: true"><strong>plusplus</strong> - Tolerate ++ and --</label>
+        	<label><input style="margin-right:5px;" type="checkbox" value="regexp: true"><strong>regexp</strong> - Tolerate . and [^...]. in /RegExp/</label>
+        	<label><input style="margin-right:5px;" type="checkbox" value="rhino: true"><strong>rhino</strong> - Assume <a href="https://developer.mozilla.org/en-US/docs/Rhino">Rhino</a></label>
+        	<label><input style="margin-right:5px;" type="checkbox" value="sloppy: true"><strong>sloppy</strong> - Tolerate missing 'use strict' pragma</label>
+        	<label><input style="margin-right:5px;" type="checkbox" value="stupid: true"><strong>stupid</strong> - Tolerate stupidity</label>
+        	<label><input style="margin-right:5px;" type="checkbox" value="sub: true"><strong>sub</strong> - Tolerate inefficient subscripting</label>
+        	<label><input style="margin-right:5px;" type="checkbox" value="todo: true"><strong>todo</strong> - Tolerate TODO comments</label>
+        	<label><input style="margin-right:5px;" type="checkbox" value="unparam: true"><strong>unparam</strong> - Tolerate unused parameters</label>
+        	<label><input style="margin-right:5px;" type="checkbox" value="vars: true"><strong>vars</strong> - Tolerate many var statements per function</label>
+        	<label><input style="margin-right:5px;" type="checkbox" value="white: true"><strong>white</strong> - Tolerate messy white space</label>
+        </div>
+    </div>
+   	
+   	<div class="modal-footer">
+   		<div class="field-container clearfix" style="padding-top: 15px;">
+            <label style="padding-right: 6px;box-sizing: border-box;">Result:</label>
+            <textarea id="jsl-conf-result" style="width:97%; height:70px; resize:none;"></textarea>
+        </div>	
+   	</div>
+               
+   <div class="modal-footer">
+        <a href="http://www.jslint.com/lint.html#options">Click here for more details on JSLint options</a>
+        <a href="#" class="dialog-button btn primary" data-button-id="ok">{{OK}}</a>
+        <a href="#" class="dialog-button btn" data-button-id="cancel">{{CANCEL}}</a>
+    </div>
+</div>
