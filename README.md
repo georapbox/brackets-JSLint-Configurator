@@ -19,4 +19,4 @@ brackets-JSLint-Configurator
 
 In main menu select **Edit > JSLint Options** or use the shortcut "CTRL+ALT+J" to open the JSLint Configurator dialog.
 
-![alt tag](https://github.com/georapbox/brackets-JSLint-Configurator/screenshoot.gif)
+![alt tag](https://github.com/georapbox/brackets-JSLint-Configurator/screenshot_1.png)
