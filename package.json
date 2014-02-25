@@ -1,5 +1,5 @@
 {
-    "name": "jslint.configurator",
+    "name": "jslint-configurator",
     "title": "JSLint Configurator",
     "description": "Enables configuration of JSLint options.",
     "homepage": "https://github.com/georapbox/brackets-JSLint-Configurator",
