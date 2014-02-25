@@ -20,3 +20,7 @@ brackets-JSLint-Configurator
 In main menu select **Edit > JSLint Options** or use the shortcut "CTRL+ALT+J" to open the JSLint Configurator dialog.
 
 ![alt tag](http://georap.gr/github/jslint-screenshot-1.png)
+
+Check the desired options... and Voila!
+
+![alt tag](http://georap.gr/github/jslint-screenshot-2.png)
