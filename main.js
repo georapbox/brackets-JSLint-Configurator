@@ -12,11 +12,7 @@ define(
             CommandManager = brackets.getModule('command/CommandManager'),
             Menus  = brackets.getModule('command/Menus'),
             Dialogs = brackets.getModule('widgets/Dialogs'),
-            
-            JSLINT_CMD_ID = 'georap.jslint',
-            snippets = require(['require', 'lib/snippet'], function (require) {
-                snippets = require('lib/snippet');
-            });
+            JSLINT_CMD_ID = 'georap.jslint';
         
         // App Ready
         AppInit.appReady(function () {
