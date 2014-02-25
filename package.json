@@ -1,0 +1,17 @@
+{
+    "name": "jslint.configurator",
+    "title": "JSLint Configurator",
+    "description": "Enables configuration of JSLint options.",
+    "homepage": "https://github.com/georapbox/brackets-JSLint-Configurator",
+    "version": "1.0.1",
+    "author": "George Raptis <georapbox@gmail.com> (http://georap.gr)",
+    "license": "MIT",
+    "keywords": [
+        "jslint",
+        "configurator",
+        "options"
+    ],
+    "engines": {
+        "brackets": ">=0.31.0"
+    }
+}
