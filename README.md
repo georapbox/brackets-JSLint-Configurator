@@ -1,4 +1,4 @@
 brackets-JSLint-Configurator
 ============================
 
-Brackets extension that enables configuration of JSLint options.
+<a href="http://brackets.io/" target="_blank">Brackets</a> extension that enables configuration of JSLint options.
