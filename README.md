@@ -21,6 +21,6 @@ In main menu select **Edit > JSLint Options** or use the shortcut "CTRL+ALT+J" t
 
 ![alt tag](http://georap.gr/github/jslint-screenshot-1.png)
 
-Check the desired options... and Voila!
-
 ![alt tag](http://georap.gr/github/jslint-screenshot-2.png)
+
+Check the desired options... and Voila!
