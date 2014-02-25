@@ -18,3 +18,5 @@ brackets-JSLint-Configurator
 ## How to use
 
 In main menu select **Edit > JSLint Options** or use the shortcut "CTRL+ALT+J" to open the JSLint Configurator dialog.
+
+![alt tag](http://georap.gr/github/jslint-screenshot-1.png)
