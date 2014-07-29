@@ -12,10 +12,13 @@ define(
             CommandManager = brackets.getModule('command/CommandManager'),
             Menus  = brackets.getModule('command/Menus'),
             Dialogs = brackets.getModule('widgets/Dialogs'),
+            ExtensionUtils = brackets.getModule('utils/ExtensionUtils'),
             JSLINT_CMD_ID = 'georap.jslint';
         
         // App Ready
         AppInit.appReady(function () {
+            ExtensionUtils.loadStyleSheet(module, 'css/georap-jslint.css');
+            
             var editMenu = Menus.getMenu(Menus.AppMenuBar.EDIT_MENU),
 				
 				cmdOptions = CommandManager.register('JSLint Options', JSLINT_CMD_ID, function () {

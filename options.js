@@ -72,7 +72,7 @@ define(function (require, exports, module) {
             
             editor.setCursorPos(startPosition);                             // set cursor to line 0 and column 0 
 			editorDoc.replaceRange(result.val() + '\n', startPosition);		// insert snippet at first line and push document one line down
-		};
+        };
 		
 		/**
 		 *	@desc toggle check/uncheck all options checkboxes
