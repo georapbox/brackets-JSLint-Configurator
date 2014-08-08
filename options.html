@@ -1,52 +1,149 @@
-<div class="jslint-settings-dialog modal">
+<div class="georapbox-jslint-settings-dialog modal">
     <div class="modal-header">
-        <h1 class="dialog-title">JSLint Options</h1>
+        <h1 class="dialog-title">JSLint Configurator</h1>
+        <a href="#" class="btn primary clear-options">clear options</a>
     </div>
     <div class="modal-body">
-        <div class="field-container clearfix">
-            <p><a id="toggleAll" href="#">Select all</a></p>
+        <div class="field-container clearfix">            
+            <div class="column">
+                <h3>Assume...</h3>
+                
+                <div title="browser">
+                    <button></button>
+                    <var class="default">default</var> a browser
+                </div>
+                <div title="couch">
+                    <button></button>
+                    <var class="default">default</var> <a href="http://couchdb.apache.org/">CouchDB</a>
+                </div>
+                <div title="devel">
+                    <button></button>
+                    <var class="default">default</var> console, alert, ...
+                </div>
+                <div title="node">
+                    <button></button>
+                    <var class="default">default</var> <a href="http://nodejs.org/">Node.js</a>
+                </div>
+                <div title="rhino">
+                    <button></button>
+                    <var class="default">default</var> <a href="https://developer.mozilla.org/en-US/docs/Rhino">Rhino</a>
+                </div>
+                <div title="passfail">
+                    <button></button>
+                    <var class="default">default</var> Stop on first error
+                </div>
+            </div>
             
-            <label><input type="checkbox" value="ass: true"><strong>ass</strong> - Tolerate assignment expressions</label>
-            <label><input type="checkbox" value="bitwise: true"><strong>bitwise</strong> - Tolerate bitwise operators</label>
-            <label><input type="checkbox" value="browser: true"><strong>browser</strong> - Assume a browser</label>
-            <label><input type="checkbox" value="closure: true"><strong>closure</strong> - Tolerate <a href="https://developers.google.com/closure/">Google Closure</a> idioms</label>
-  			<label><input type="checkbox" value="continue: true"><strong>continue</strong> - Tolerate continue</label>
-        	<label><input type="checkbox" value="couch: true"><strong>couch</strong> - Assume <a href="http://couchdb.apache.org/">CouchDB</a></label>
-        	<label><input type="checkbox" value="debug: true"><strong>debug</strong> - Tolerate debugger statements</label>
-        	<label><input type="checkbox" value="devel: true"><strong>devel</strong> - Assume console, alert, ...</label>
-        	<label><input type="checkbox" value="eqeq: true"><strong>eqeq</strong> - Tolerate == and !=</label>
-        	<label><input type="checkbox" value="evil: true"><strong>evil</strong> - Tolerate eval</label>
-        	<label><input type="checkbox" value="forin: true"><strong>forin</strong> - Tolerate unfiltered for in </label>
-        	<label><input type="checkbox" value="indent: 4"><strong>indent</strong> - Strict white space indentation (default is 4)</label>
-        	<label><input type="checkbox" value="maxerr: 50"><strong>maxerr</strong> - Maximum number of errors (default is 50)</label>
-        	<label><input type="checkbox" value="maxlen: 250"><strong>maxlen</strong> - Maximum line length (default is 250)</label>
-        	<label><input type="checkbox" value="newcap: true"><strong>newcap</strong> - Tolerate uncapitalized constructors</label>
-        	<label><input type="checkbox" value="node: true"><strong>node</strong> - Assume <a href="http://nodejs.org/">Node.js</a></label>
-        	<label><input type="checkbox" value="nomen: true"><strong>nomen</strong> - Tolerate dangling _ in identifiers</label>
-        	<label><input type="checkbox" value="passfail: true"><strong>passfail</strong> - Stop on first error</label>
-        	<label><input type="checkbox" value="plusplus: true"><strong>plusplus</strong> - Tolerate ++ and --</label>
-        	<label><input type="checkbox" value="regexp: true"><strong>regexp</strong> - Tolerate . and [^...]. in /RegExp/</label>
-        	<label><input type="checkbox" value="rhino: true"><strong>rhino</strong> - Assume <a href="https://developer.mozilla.org/en-US/docs/Rhino">Rhino</a></label>
-        	<label><input type="checkbox" value="sloppy: true"><strong>sloppy</strong> - Tolerate missing 'use strict' pragma</label>
-        	<label><input type="checkbox" value="stupid: true"><strong>stupid</strong> - Tolerate stupidity</label>
-        	<label><input type="checkbox" value="sub: true"><strong>sub</strong> - Tolerate inefficient subscripting</label>
-        	<label><input type="checkbox" value="todo: true"><strong>todo</strong> - Tolerate TODO comments</label>
-        	<label><input type="checkbox" value="unparam: true"><strong>unparam</strong> - Tolerate unused parameters</label>
-        	<label><input type="checkbox" value="vars: true"><strong>vars</strong> - Tolerate many var statements per function</label>
-        	<label><input type="checkbox" value="white: true"><strong>white</strong> - Tolerate messy white space</label>
+            <div class="column">
+                <h3>Tolerate...</h3>
+                
+                <div title="ass">
+                    <button></button>
+                    <var class="default">default</var> assignment expressions
+                </div>
+                <div title="bitwise">
+                    <button></button>
+                    <var class="default">default</var> bitwise operators
+                </div>
+                <div title="closure">
+                    <button></button>
+                    <var class="default">default</var> <a href="https://developers.google.com/closure/">Google Closure</a>
+                </div>
+                <div title="continue">
+                    <button></button>
+                    <var class="default">default</var> continue
+                </div>
+                <div title="debug">
+                    <button></button>
+                    <var class="default">default</var> debugger statements
+                </div>
+                <div title="eqeq">
+                    <button></button>
+                    <var class="default">default</var> == and !=
+                </div>
+            </div>
+            
+            <div class="column">
+                <h3>Tolerate...</h3>
+                
+                <div title="evil">
+                    <button></button>
+                    <var class="default">default</var> eval
+                </div>
+                <div title="forin">
+                    <button></button>
+                    <var class="default">default</var> <a href="http://yuiblog.com/blog/2006/09/26/for-in-intrigue/">unfiltered</a> for in
+                </div>
+                <div title="newcap">
+                    <button></button>
+                    <var class="default">default</var> uncapitalized constructors
+                </div>
+                <div title="nomen">
+                    <button></button>
+                    <var class="default">default</var> dangling _ in identifiers
+                </div>
+                <div title="plusplus">
+                    <button></button>
+                    <var class="default">default</var> ++ and --
+                </div>
+                <div title="regexp">
+                    <button></button>
+                    <var class="default">default</var> . and [^...] in /RegExp/
+                </div>
+                <div title="unparam">
+                    <button></button>
+                    <var class="default">default</var> unused parameters
+                </div>
+            </div>
+            
+            <div class="column">
+                <h3>Tolerate...</h3>
+               
+                <div title="sloppy">
+                    <button></button>
+                    <var class="default">default</var> missing 'use strict' pragma
+                </div>
+                <div title="stupid">
+                    <button></button>
+                    <var class="default">default</var> stupidity
+                </div>
+                <div title="sub">
+                    <button></button>
+                    <var class="default">default</var> inefficient subscripting
+                </div>
+                <div title="todo">
+                    <button></button>
+                    <var class="default">default</var> TODO comments
+                </div>
+                <div title="vars">
+                    <button></button>
+                    <var class="default">default</var> many var statements per function
+                </div>
+                <div title="white">
+                    <button></button>
+                    <var class="default">default</var> messy white space
+                </div>
+            </div>
+            
+            <div class="column last">
+                <input title="indent" type="number" min="0"><label title="indent">Indentation</label><br/>
+                <input title="maxlen" type="number" min="0"><label title="maxlen">Maximum line length</label><br/>
+                <input title="maxerr" type="number" min="0"><label title="maxerr">Maximum number of errors</label>
+            </div>
         </div>
     </div>
-   	
-   	<div class="modal-footer">
-   		<div class="field-container clearfix">
-            <label>Result:</label>
-            <textarea id="jsl-conf-result"></textarea>
+    
+    <div class="modal-footer first">
+        <div class="field-container clearfix">
+            <label>JSLint Directive</label>
+            <textarea id="georapbox-jsl-conf-result"></textarea>
+            <p style="color:#787878;margin:0;"><em><span style="font-weight:bold;">Hint:</span> Always insert the JSLint directive in the first line of the document.</em></p>
         </div>	
-   	</div>
-               
-   <div class="modal-footer">
+    </div>
+       
+   <div class="modal-footer last">
         <a href="http://www.jslint.com/lint.html#options">Click here for more details on JSLint options</a>
-        <a href="#" class="dialog-button btn primary" data-button-id="ok">{{OK}}</a>
+        <a href="#" class="dialog-button btn primary" data-button-id="ok">Insert directive to document</a>
         <a href="#" class="dialog-button btn" data-button-id="cancel">{{CANCEL}}</a>
     </div>
 </div>

@@ -1,0 +1,121 @@
+.georapbox-jslint-settings-dialog .modal-footer.first {
+    text-align: left;
+}
+.georapbox-jslint-settings-dialog .modal-footer label {
+    font-size: 20px;
+    text-align: center;
+    padding: 10px 0;
+    margin-bottom: 0;
+    color: #ffffff;
+	text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    background: #B0C4DE;
+    box-sizing: border-box;
+    border-radius: 3px 3px 0 0;
+	cursor: default;
+}
+.georapbox-jslint-settings-dialog .modal-footer textarea {
+    width: 100%;
+    height: 70px;
+    margin-top: 0;
+    box-sizing: border-box;
+    border-radius: 0 0 3px 3px;
+    resize: vertical;
+}
+.georapbox-jslint-settings-dialog .modal-footer .field-container {
+    padding-top: 15px;
+}
+.georapbox-jslint-settings-dialog {
+    width: 55%;
+}
+.georapbox-jslint-settings-dialog a.clear-options {
+    position: absolute;
+    top: 11px;
+    right: 15px;
+}
+.georapbox-jslint-settings-dialog button {
+    background-color: #B0C4DE;
+    color: #000;
+    cursor: pointer;
+    font-family: sans-serif;
+    font-size: 100%;
+    font-style: normal;
+    margin: 0pt;
+    padding: 0.35em;
+    text-align: center;
+    width: 30px;
+    height: 20px;
+}
+.georapbox-jslint-settings-dialog .column {
+    float: left;
+    width: 31%;
+    margin: 0 2% 2% 0;
+}
+.georapbox-jslint-settings-dialog .column div {
+    margin-bottom: 3px;
+}
+.georapbox-jslint-settings-dialog .column h3 {
+    font-size: 1.17em;
+    line-height: 1;
+    padding-bottom: 5px;
+    margin: 0;
+}
+.georapbox-jslint-settings-dialog .column button {
+    border-color: #B7C3D0 #547598 #547598 #B7C3D0;
+    border-radius: 5px 0px 0px 5px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.37);
+    width: 2em;
+    margin: 0;
+}
+.georapbox-jslint-settings-dialog .column button:hover {
+    background-color: #6495ED;
+}
+.georapbox-jslint-settings-dialog .column button:active {
+    background-color: #4682B4;
+}
+.georapbox-jslint-settings-dialog .column var {
+    background-color: transparent;
+    border: 1pt solid #C0C0C0;
+    border-left: none;
+    border-radius: 0px 3px 3px 0px;
+    color: #808080;
+    font-family: serif;
+    display: inline-block;
+    padding: 0 0.5em;
+    width: 40px;
+    height: 20px;
+    margin: 0 0 0 -3px;
+    cursor: pointer;
+}
+.georapbox-jslint-settings-dialog .column var.true {
+    color: #000000;   
+    border-color: #9D968C #C5BFB3 #C5BFB3 #6F6A61;
+    background-color: #ffffff;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2) inset;
+}
+.georapbox-jslint-settings-dialog .column var.false {
+    color: #000000;   
+    border-color: #9D968C #C5BFB3 #C5BFB3 #6F6A61;
+    background-color: #C0C0C0;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2) inset;
+}
+.georapbox-jslint-settings-dialog .column.last {
+    padding-top: 20px;
+}
+.georapbox-jslint-settings-dialog .column input[type="number"] {
+    width: 50px;
+    margin-bottom: 3px;
+}
+.georapbox-jslint-settings-dialog .column label {
+    display: inline-block;
+    padding-left: 5px;
+	cursor: default;
+}
+
+
+@media only screen and (max-width: 1366px) {
+    .georapbox-jslint-settings-dialog {
+        width: 80%;
+    }
+}

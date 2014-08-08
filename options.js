@@ -1,143 +1,217 @@
-/*
- * The MIT License (MIT)
- * Copyright (c) 2014 George Raptis. All rights reserved.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a
- * copy of this software and associated documentation files (the "Software"),
- * to deal in the Software without restriction, including without limitation
- * the rights to use, copy, modify, merge, publish, distribute, sublicense,
- * and/or sell copies of the Software, and to permit persons to whom the
- * Software is furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
- */
-
-/*jslint vars: true, plusplus: true, devel: true, nomen: true, regexp: true, indent: 4, maxerr: 50 */
-/*global define, $, brackets, window, Mustache */
-
+/*global define, $, brackets, Mustache*/
 define(function (require, exports, module) {
     'use strict';
     
-    var Dialogs = brackets.getModule("widgets/Dialogs"),
-		PreferencesManager = brackets.getModule("preferences/PreferencesManager"),
-		ProjectManager = brackets.getModule("project/ProjectManager"),
-        EditorManager = brackets.getModule("editor/EditorManager"),
-		Strings = brackets.getModule("strings"),
-		OptionsTemplate = require("text!options.html");
+    var Dialogs = brackets.getModule('widgets/Dialogs'),
+		PreferencesManager = brackets.getModule('preferences/PreferencesManager'),
+		ProjectManager = brackets.getModule('project/ProjectManager'),
+        EditorManager = brackets.getModule('editor/EditorManager'),
+        DocumentManager = brackets.getModule('document/DocumentManager'),
+		Strings = brackets.getModule('strings'),
+		OptionsTemplate = require('text!options.html');
     
-	
     /**
-	 *	@desc show dialog with JSLint options 
+	 * Displays dialog with JSLint options.
 	*/
     function showOptionsDialog() {
-		var dialog, checkboxes, checkboxesLen, result, i, toggleAll,
-            opts = [];
+        var currentDoc = DocumentManager.getCurrentDocument(),
+            opts = [],
+			promise,
+            dialog,
+            varEls,
+            varLen,
+            inputs,
+            inputsLen,
+            result,
+            i;
+		
+		/**		
+		 * Clears all dialog's options.
+		 */
+		function clearOptions() {
+			varEls.removeClass('true false').
+				addClass('default').
+				html('default');                // Reset all var elements.
+
+			inputs.val('');                     // Clear input elements' values.
+			result.val('');                     // Clear the directive textarea.
+			opts = [];                          // Empty options array.
+		}
+		
+		/**
+		 * Generates JSLint Directive. 
+		*/
+        function generateDirective() {
+            var optionName,
+                optionValue,
+                varElement;
+            
+            opts = [];                         // Empty options array.
+			
+			// Loop through all var element.
+            for (i = 0; i < varLen; i += 1) {
+                varElement = varEls[i];
+                
+                if (!$(varElement).hasClass('default')) {
+                    optionName = $(varElement).parent().attr('title');
+                    optionValue = $(varElement).attr('class');
+                    
+                    opts.push(optionName + ': ' + optionValue);
+                }
+            }
+            
+			// Loop through all input elements.
+            for (i = 0; i < inputsLen; i += 1) {
+                if ($(inputs[i]).val() !== '') {
+                    optionName = $(inputs[i]).attr('title');
+                    optionValue = $(inputs[i]).val();
+                    
+                    opts.push(optionName + ': ' + optionValue);
+                }
+            }
+            
+			if (opts.length >= 1) {											// If options array is NOT empty...
+				result.val('/*jslint ' + opts.join(', ') + '*/');			// ...display the options as string in results placeholder.
+			} else {														// If options array is empty...
+				result.val('');											    // ...empty the results placeholder.
+			}
+		}
 			
 		/**
-		 *	@desc generates the snippet with JSLint options 
+		 * Inserts JSLint directive on editor body.
 		*/
-		var generateSnippet = function () {
-			opts = [];                                                      // empty options array
-
-			for (i = 0; i < checkboxesLen; i++) {                           // loop through all options checkboxes
-				if (checkboxes[i].checked) {                                // if checked
-					opts.push($(checkboxes[i]).val());                      // push checkbox option to options array
-				}
-			}
-
-			if (opts.length >= 1) {											// if options array is NOT empty
-				result.val('/*jslint ' + opts.join(', ') + ' */');			// display the options as string in results placeholder
-			} else {														// id options array is empty
-				result.val('');											    // empty the results placeholder
-			}
-		};
-			
-		/**
-		 *	@desc insert JSLint snippet on editor body
-		*/
-		var insertSnippetToEditor = function () {
+		function insertDirectiveToEditor() {
 			var editor = EditorManager.getCurrentFullEditor(),
 				editorDoc = editor.document,
-                startPosition = {line: 0, ch: 0};
+                startPosition = {line: 0, ch: 0},
+                firstLineContent = currentDoc.getLine(0);
             
-            editor.setCursorPos(startPosition);                             // set cursor to line 0 and column 0 
-			editorDoc.replaceRange(result.val() + '\n', startPosition);		// insert snippet at first line and push document one line down
-        };
-		
-		/**
-		 *	@desc toggle check/uncheck all options checkboxes
-		 *	@param check {Boolean} - if true check all options else uncheck
-		*/
-		var toggleAllOptions = function (check) {
-			var i = 0;
+            editor.setCursorPos(startPosition);                             // Set cursor to line 0 and column 0. 
+            editorDoc.replaceRange(result.val() + '\n', startPosition);	    // Insert directive at first line and push document one line down.
 			
-			for (i; i < checkboxesLen; i++) {
-				// check all
-				if (check === true) {
-					if (!checkboxes[i].checked) {
-						checkboxes[i].click();
-					}
-				}
-				
-				// uncheck all
-				if (check === false) {
-					if (checkboxes[i].checked) {
-						checkboxes[i].click();
-					}
-				}
+			// Check if document already has a JSLint directive
+			// and remove the line with the old directive.
+			if (firstLineContent.indexOf('/*jslint') >= 0) {
+				editorDoc.replaceRange('', {line: 1, ch: 0}, {line: 2, ch: 0});
 			}
-		};
+		}
+        
+        /**        
+         * Gets directive from editor and populates the appropriate options in dialog.
+         * Assumes that the directive is on the first line of the document.
+         */
+        function getDirectiveFromEditor() {
+            var firstLineContent = currentDoc.getLine(0),
+                tempArr = [],
+                arr = [],
+                tempArrLen,
+                arrLen,
+                tempArrItem,
+                arrItem,
+                subStr,
+                option,
+                i;
+            
+            if (firstLineContent.indexOf('/*jslint') >= 0) {
+                subStr = firstLineContent.replace('/*jslint', '');
+                subStr = subStr.replace('*/', '');
+                tempArr = subStr.split(',');
+                tempArr = $.map(tempArr, $.trim);
+                tempArrLen = tempArr.length;
+                
+                for (i = 0; i < tempArrLen; i += 1) {
+                    tempArrItem = tempArr[i];
+                    
+                    option = {
+                        name: tempArrItem.substr(0, tempArrItem.indexOf(':')),
+                        value: $.trim(tempArrItem.substr(tempArrItem.indexOf(':')).replace(':', ''))
+                    };
+                    
+                    arr.push(option);
+                }
+                
+                arrLen = arr.length;
+                
+                for (i = 0; i < arrLen; i += 1) {
+                    arrItem = arr[i];
+                    
+					// Update the dialog's options only if the values specified are valid (true or false).
+                    if (arrItem.value === 'true' || arrItem.value === 'false') {
+						dialog.find('.modal-body div[title="' + arrItem.name + '"] var').
+							removeClass('default').
+							addClass(arrItem.value).
+							html(arrItem.value);
+					}
+					
+					if (arrItem.name === 'indent' || arrItem.name === 'maxlen' || arrItem.name === 'maxerr') {
+						dialog.find('.modal-body input[title="' + arrItem.name + '"]').val(arrItem.value);
+					}
+				}
+                
+                generateDirective();
+            }
+        }
 		
-		var promise = Dialogs.showModalDialogUsingTemplate(Mustache.render(OptionsTemplate, Strings))
-			.done(function (id) {
-				// if button OK clicked
+		promise = Dialogs.showModalDialogUsingTemplate(Mustache.render(OptionsTemplate, Strings)).
+            done(function (id) {
+				// if button OK clicked...
                 if (id === Dialogs.DIALOG_BTN_OK) {
 					if (opts.length >= 1) {
-						insertSnippetToEditor();
+						insertDirectiveToEditor();
+                        dialog.off('click');
 					}
+                }
+                
+                // if button CANCEL clicked...
+                if (id === Dialogs.DIALOG_BTN_CANCEL) {
+                    dialog.off('click');
                 }
 			});
 		
-		
-		dialog = $(".jslint-settings-dialog.instance");		// dialof modal		
-		checkboxes = dialog.find('input:checkbox');			// options checkboxes
-        checkboxesLen = checkboxes.length;					// number of options checkboxes
-        result = dialog.find('#jsl-conf-result');			// result placeholder
-		toggleAll = $('#toggleAll');
+		dialog = $('.georapbox-jslint-settings-dialog.instance');		    // dialog modal
+        varEls = dialog.find('.modal-body').find('var');                    // dialog buttons
+        varLen = varEls.length;                                             // dialog buttons length
+        inputs = dialog.find('.modal-body').find('input[type="number"]');   // dialog inputs
+        inputsLen = inputs.length;                                          // inputs length 
+        result = dialog.find('#georapbox-jsl-conf-result');			        // result placeholder
         
-        /*===== Events =====*/
-        $(checkboxes).change(generateSnippet);				// generate new JSLint snippet on checkbox click
-		
-		// toggle all checkbox options
-		toggleAll.on('click', function (event) {
-			event.preventDefault();
-			
-			var self = $(this);
-			
-			if (self.hasClass('clicked')) {
-				self.html('Select all');
-				self.removeClass('clicked');
-				toggleAllOptions(false);                    // check em all
-			} else {
-				self.html('Unselect all');
-				self.addClass('clicked');
-				toggleAllOptions(true);                     // uncheck em all
-			}
-		});
+        getDirectiveFromEditor();
+        
+        // Add event handlers.
+        dialog.
+            on('click', '.modal-body button', function () {
+                var varEl = $(this).next();
+
+                if (varEl.hasClass('default')) {
+                    varEl.removeClass('default').addClass('true').html('true');
+                    generateDirective();
+                    return;
+                }
+
+                if (varEl.hasClass('true')) {
+                    varEl.removeClass('true').addClass('false').html('false');
+                    generateDirective();
+                    return;
+                }
+
+                if (varEl.hasClass('false')) {
+                    varEl.removeClass('false').addClass('default').html('default');
+                    generateDirective();
+                    return;
+                }
+            }).
+            on('click', '.modal-body var', function () {
+                $(this).prev().click();
+            }).
+            on('click', '.modal-header a.clear-options', function () {
+                clearOptions();
+            }).
+			on('change', '.modal-body input[type="number"]', function () {
+                generateDirective();
+            });
     
 		return promise;
 	}
     
-    /*===== Exports =====*/
     exports.showOptionsDialog = showOptionsDialog;
 });

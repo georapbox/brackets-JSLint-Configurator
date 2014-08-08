@@ -1,9 +1,9 @@
-brackets-JSLint-Configurator
-============================
+JSLint Configurator
+===================
 
 [Brackets](http://brackets.io/) extension that enables configuration of JSLint options.
 
-## Install
+## Installation
 
 #### Git Clone
 1. Under main menu select **Help > Show Extensions Folder**
@@ -17,10 +17,12 @@ brackets-JSLint-Configurator
 
 ## How to use
 
-Under main menu select **Edit > JSLint Options** or use the shortcut "CTRL+ALT+J" to open the JSLint Configurator dialog.
+Under main menu select **Edit > JSLint Configurator** or use the shortcut **"CTRL+ALT+J"** to open the JSLint Configurator dialog.
 
-![alt tag](http://www.georap.gr/github/jslint-screenshot-1.png)
+![Screenshot 1](screenshots/screen-1.jpg)
 
-Check the desired options, click **'OK'**... and Voila!
+Check the desired options, click the **'Insert directive to document'** button... and Voila!
 
-![alt tag](http://www.georap.gr/github/jslint-screenshot-2.png)
+![Screenshot 2](screenshots/screen-2.jpg)
+
+**Hint:** The configurator always inserts the JSLint directive in the first line of the document. Therefore, every time the dialog opens, it checks if the first line of the document has a JSLint directive and populates the appropriate options.
