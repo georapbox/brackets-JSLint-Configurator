@@ -240,6 +240,7 @@ define(function (require, exports, module) {
             }).
             on('click', '.modal-header a.clear-options', function () {
                 clearOptions();
+                toggleCheckbox('input[name="jsonConvert"]', false);
             }).
             on('click', '.modal-footer .select-button', function () {
                 result.focus();
