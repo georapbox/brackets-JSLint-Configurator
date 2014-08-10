@@ -19,10 +19,26 @@ JSLint Configurator
 
 Under main menu select **Edit > JSLint Configurator** or use the shortcut **"CTRL+ALT+J"** to open the JSLint Configurator dialog.
 
-![Screenshot 1](screenshots/screen-1.jpg)
+![Screenshot 1](https://github.com/georapbox/brackets-JSLint-Configurator/blob/master/screenshots/screen-1.jpg)
 
 Check the desired options, click the **'Insert directive to document'** button... and Voila!
 
-![Screenshot 2](screenshots/screen-2.jpg)
+![Screenshot 2](https://github.com/georapbox/brackets-JSLint-Configurator/blob/master/screenshots/screen-2.jpg)
 
 **Hint:** The configurator always inserts the JSLint directive in the first line of the document. Therefore, every time the dialog opens, it checks if the first line of the document has a JSLint directive and populates the appropriate options.
+
+#Changelog
+
+### 1.1.1
+- Convert JSLint directive to a JSON string, so it can be used as <code>jslint.options</code> in the <code>.brackets.json</code> preferences file.
+
+### 1.1.0
+- UI update.
+- New JSLint directive replaces the old one when inserted in current document.
+- Read predefined options from current document and populate the appropriate values when the configurator opens.
+
+### 1.0.2
+- Bug fixing.
+
+### 1.0.1
+- Initial release.

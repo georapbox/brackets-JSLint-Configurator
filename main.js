@@ -3,7 +3,7 @@ define(
     ['require', 'exports', 'module', 'options'],
     function (require, exports, module, options) {
         "use strict";
-
+        
         var AppInit = brackets.getModule('utils/AppInit'),
             EditorManager = brackets.getModule('editor/EditorManager'),
             KeyEvent = brackets.getModule('utils/KeyEvent'),

@@ -76,6 +76,31 @@ define(function (require, exports, module) {
 				result.val('');											    // ...empty the results placeholder.
 			}
 		}
+        
+        /**        
+         * Generates JSON string out of options selected.      
+         */
+        function generateJsonString() {
+            var i = 0,
+                parsedData = {},
+                jsonString,
+                val;
+            
+            for (i; i < opts.length; i += 1) {
+                val = opts[i].substr(opts[i].indexOf(':') + 2);
+                
+                if (val === 'true') {
+                    parsedData[opts[i].substr(0, opts[i].indexOf(':'))] = true;
+                } else if (val === 'false') {
+                    parsedData[opts[i].substr(0, opts[i].indexOf(':'))] = false;
+                } else if (!isNaN(val)) {
+                    parsedData[opts[i].substr(0, opts[i].indexOf(':'))] = +val;
+                }
+            }
+            
+            jsonString = JSON.stringify(parsedData, null, '\t');
+            result.val(jsonString);
+        }
 			
 		/**
 		 * Inserts JSLint directive on editor body.
@@ -95,6 +120,14 @@ define(function (require, exports, module) {
 				editorDoc.replaceRange('', {line: 1, ch: 0}, {line: 2, ch: 0});
 			}
 		}
+        
+        /**
+		 * Inserts JSLint directive on editor body.
+		*/
+        function toggleCheckbox(checkbox, checked) {
+            var jsonInput = dialog.find(checkbox);
+            jsonInput.attr('checked', checked);
+        }
         
         /**        
          * Gets directive from editor and populates the appropriate options in dialog.
@@ -181,7 +214,9 @@ define(function (require, exports, module) {
         dialog.
             on('click', '.modal-body button', function () {
                 var varEl = $(this).next();
-
+                
+                toggleCheckbox('input[name="jsonConvert"]', false);
+                
                 if (varEl.hasClass('default')) {
                     varEl.removeClass('default').addClass('true').html('true');
                     generateDirective();
@@ -206,8 +241,27 @@ define(function (require, exports, module) {
             on('click', '.modal-header a.clear-options', function () {
                 clearOptions();
             }).
+            on('click', '.modal-footer .select-button', function () {
+                result.focus();
+                result.select();
+            }).
 			on('change', '.modal-body input[type="number"]', function () {
                 generateDirective();
+                toggleCheckbox('input[name="jsonConvert"]', false);
+            }).
+            on('change', '.modal-footer input[name="jsonConvert"]', function () {
+                var insertButton = dialog.find('a[data-button-id="ok"]'),
+                    textareaVal = result.val();
+                
+                if (textareaVal.trim() !== '') {
+                    if ($(this).is(':checked')) {
+                        insertButton.attr('disabled', true).prop('disabled', true);
+                        generateJsonString();
+                    } else {
+                        insertButton.attr('disabled', false).prop('disabled', false);
+                        generateDirective();
+                    }
+                }
             });
     
 		return promise;
