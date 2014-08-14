@@ -9,13 +9,16 @@
     position: relative;
     padding-top: 5px;
 }
-.georapbox-jslint-settings-dialog .modal-footer .select-button {
+.georapbox-jslint-settings-dialog .modal-footer .textarea-options {
     position: absolute;
-    top: 50px;
-    right: 15px;
+    top: 11px;
+    right: 5px;
+    background-color: #ffffff;
+    padding: 5px;
+    border-radius: 3px;
     display: none;
 }
-.georapbox-jslint-settings-dialog .modal-footer:hover .select-button {
+.georapbox-jslint-settings-dialog .modal-footer.rollover:hover .textarea-options {
     display: block;
 }
 .georapbox-jslint-settings-dialog .btn:disabled ,
@@ -42,9 +45,9 @@
     margin-top: 0;
     box-sizing: border-box;
     border-radius: 0 0 3px 3px;
-    padding-right: 60px;
     background: #ffffff !important;
     resize: vertical;
+    cursor: default;
 }
 .georapbox-jslint-settings-dialog a.clear-options {
     position: absolute;

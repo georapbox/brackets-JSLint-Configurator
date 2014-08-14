@@ -29,6 +29,9 @@ Check the desired options, click the **'Insert directive to document'** button..
 
 #Changelog
 
+### 1.1.2
+- Extract JSLint directive to file.
+
 ### 1.1.1
 - Convert JSLint directive to a JSON string, so it can be used as <code>jslint.options</code> in the <code>.brackets.json</code> preferences file.
 

@@ -136,8 +136,11 @@
     <div class="modal-footer first">
         <div class="field-container clearfix">
             <h2>JSLint Directive</h2>
-            <a class="select-button" href="#">select</a>
-            <textarea id="georapbox-jsl-conf-result" readonly></textarea>
+            <div class="textarea-options">
+                <a class="select-button" href="#">Select</a> |
+                <a class="extract-button" href="#">Extract to file</a>    
+            </div>
+            <textarea id="georapbox-jsl-conf-result" readonly required></textarea>
             <p style="float:left;color:#787878;margin:0;"><em><span style="font-weight:bold;">Hint:</span> Always insert the JSLint directive in the first line of the document.</em></p>
             <p style="float:right;margin:0;"><label><input type="checkbox" name="jsonConvert"> Convert to JSON</label></p>
         </div>	

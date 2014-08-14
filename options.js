@@ -8,7 +8,7 @@ define(function (require, exports, module) {
         EditorManager = brackets.getModule('editor/EditorManager'),
         DocumentManager = brackets.getModule('document/DocumentManager'),
 		Strings = brackets.getModule('strings'),
-		OptionsTemplate = require('text!options.html');
+		OptionsTemplate = require('text!html/options.html');
     
     /**
 	 * Displays dialog with JSLint options.
@@ -23,19 +23,37 @@ define(function (require, exports, module) {
             inputs,
             inputsLen,
             result,
-            i;
-		
+            i,
+            
+            helpers = {
+                toggleResultRollover: function (enabled) {
+                    var modalFooter = dialog.find('.modal-footer.first');
+
+                    if (enabled === true) {
+                        modalFooter.addClass('rollover');
+                    } else if (enabled === false) {
+                        modalFooter.removeClass('rollover');
+                    }
+                },
+                
+                toggleCheckbox: function (checkbox, checked) {
+                    var jsonInput = dialog.find(checkbox);
+                    jsonInput.attr('checked', checked);
+                }
+            };
+        
 		/**		
 		 * Clears all dialog's options.
 		 */
 		function clearOptions() {
 			varEls.removeClass('true false').
 				addClass('default').
-				html('default');                // Reset all var elements.
+				html('default');                  // Reset all var elements.
 
-			inputs.val('');                     // Clear input elements' values.
-			result.val('');                     // Clear the directive textarea.
-			opts = [];                          // Empty options array.
+			inputs.val('');                       // Clear input elements' values.
+			result.val('');                       // Clear the directive textarea.
+			opts = [];                            // Empty options array.
+            helpers.toggleResultRollover(false);  // Disables rollover on textarea.
 		}
 		
 		/**
@@ -72,9 +90,11 @@ define(function (require, exports, module) {
             
 			if (opts.length >= 1) {											// If options array is NOT empty...
 				result.val('/*jslint ' + opts.join(', ') + '*/');			// ...display the options as string in results placeholder.
-			} else {														// If options array is empty...
+                helpers.toggleResultRollover(true);                         // Enbles rollover on textarea.
+            } else {														// If options array is empty...
 				result.val('');											    // ...empty the results placeholder.
-			}
+                helpers.toggleResultRollover(false);                        // Disables rollover on textarea.
+            }
 		}
         
         /**        
@@ -120,14 +140,6 @@ define(function (require, exports, module) {
 				editorDoc.replaceRange('', {line: 1, ch: 0}, {line: 2, ch: 0});
 			}
 		}
-        
-        /**
-		 * Inserts JSLint directive on editor body.
-		*/
-        function toggleCheckbox(checkbox, checked) {
-            var jsonInput = dialog.find(checkbox);
-            jsonInput.attr('checked', checked);
-        }
         
         /**        
          * Gets directive from editor and populates the appropriate options in dialog.
@@ -184,6 +196,17 @@ define(function (require, exports, module) {
                 generateDirective();
             }
         }
+        
+        /**
+         * Creates a new untitled file and appends content.
+         */
+        function openFile(content, fileExtension) {
+            var counter = 1,
+                doc = DocumentManager.createUntitledDocument(counter, fileExtension);
+            
+            DocumentManager.setCurrentDocument(doc);
+            doc.setText(content);
+        }
 		
 		promise = Dialogs.showModalDialogUsingTemplate(Mustache.render(OptionsTemplate, Strings)).
             done(function (id) {
@@ -215,7 +238,7 @@ define(function (require, exports, module) {
             on('click', '.modal-body button', function () {
                 var varEl = $(this).next();
                 
-                toggleCheckbox('input[name="jsonConvert"]', false);
+                helpers.toggleCheckbox('input[name="jsonConvert"]', false);
                 
                 if (varEl.hasClass('default')) {
                     varEl.removeClass('default').addClass('true').html('true');
@@ -240,15 +263,38 @@ define(function (require, exports, module) {
             }).
             on('click', '.modal-header a.clear-options', function () {
                 clearOptions();
-                toggleCheckbox('input[name="jsonConvert"]', false);
+                helpers.toggleCheckbox('input[name="jsonConvert"]', false);
             }).
             on('click', '.modal-footer .select-button', function () {
                 result.focus();
                 result.select();
             }).
+            on('click', '.modal-footer .extract-button', function () {
+                var jsonConverter = dialog.find('input[name="jsonConvert"]'),
+                    textareaVal = result.val(),
+                    extractedFileExtension;
+                
+                // Check if directive value is empty.
+                if (textareaVal.trim() === '') {
+                    return;
+                }
+                
+                // Close JSLint options dialog.
+                Dialogs.cancelModalDialogIfOpen('georapbox-jslint-settings-dialog');
+                
+                // Determine file extension.
+                if (jsonConverter.is(':checked')) {
+                    extractedFileExtension = '.json';
+                } else {
+                    extractedFileExtension = '.js';
+                }
+                
+                // Create a new untitled file with the appropriate extension.
+                openFile(textareaVal, extractedFileExtension);
+            }).
 			on('change', '.modal-body input[type="number"]', function () {
                 generateDirective();
-                toggleCheckbox('input[name="jsonConvert"]', false);
+                helpers.toggleCheckbox('input[name="jsonConvert"]', false);
             }).
             on('change', '.modal-footer input[name="jsonConvert"]', function () {
                 var insertButton = dialog.find('a[data-button-id="ok"]'),
