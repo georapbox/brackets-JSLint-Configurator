@@ -1,3 +1,4 @@
+/*jslint devel: true*/
 /*global define, $, brackets, Mustache*/
 define(function (require, exports, module) {
     'use strict';
@@ -7,8 +8,9 @@ define(function (require, exports, module) {
 		ProjectManager = brackets.getModule('project/ProjectManager'),
         EditorManager = brackets.getModule('editor/EditorManager'),
         DocumentManager = brackets.getModule('document/DocumentManager'),
-		Strings = brackets.getModule('strings'),
-		OptionsTemplate = require('text!html/options.html');
+		OptionsTemplate = require('text!html/options.html'),
+        Strings = require('strings'),
+        FileExtension = require('services/file_extension');
     
     /**
 	 * Displays dialog with JSLint options.
@@ -18,6 +20,7 @@ define(function (require, exports, module) {
             opts = [],
 			promise,
             dialog,
+            dialogOkBtn,
             varEls,
             varLen,
             inputs,
@@ -207,6 +210,24 @@ define(function (require, exports, module) {
             DocumentManager.setCurrentDocument(doc);
             doc.setText(content);
         }
+        
+        /**        
+         * Disables Dialog's OK button.        
+         */
+        function disableDialogOkButton() {
+            dialogOkBtn.
+                attr('disabled', true).
+                prop('disabled', true);
+        }
+        
+        /**        
+         * Enables Dialog's OK button.        
+         */
+        function enableDialogOkButton() {
+            dialogOkBtn.
+                attr('disabled', false).
+                prop('disabled', false);
+        }
 		
 		promise = Dialogs.showModalDialogUsingTemplate(Mustache.render(OptionsTemplate, Strings)).
             done(function (id) {
@@ -215,16 +236,19 @@ define(function (require, exports, module) {
 					if (opts.length >= 1) {
 						insertDirectiveToEditor();
                         dialog.off('click');
+                        dialog.off('change');
 					}
                 }
                 
                 // if button CANCEL clicked...
                 if (id === Dialogs.DIALOG_BTN_CANCEL) {
                     dialog.off('click');
+                    dialog.off('change');
                 }
 			});
 		
 		dialog = $('.georapbox-jslint-settings-dialog.instance');		    // dialog modal
+        dialogOkBtn = dialog.find('a[data-button-id="ok"]');                // dialog OK button  
         varEls = dialog.find('.modal-body').find('var');                    // dialog buttons
         varLen = varEls.length;                                             // dialog buttons length
         inputs = dialog.find('.modal-body').find('input[type="number"]');   // dialog inputs
@@ -232,6 +256,10 @@ define(function (require, exports, module) {
         result = dialog.find('#georapbox-jsl-conf-result');			        // result placeholder
         
         getDirectiveFromEditor();
+
+        if (FileExtension.get() !== 'js') {
+            disableDialogOkButton();
+        }
         
         // Add event handlers.
         dialog.
@@ -264,6 +292,10 @@ define(function (require, exports, module) {
             on('click', '.modal-header a.clear-options', function () {
                 clearOptions();
                 helpers.toggleCheckbox('input[name="jsonConvert"]', false);
+                
+                if (FileExtension.get() === 'js') {
+                    enableDialogOkButton();
+                }
             }).
             on('click', '.modal-footer .select-button', function () {
                 result.focus();
@@ -297,16 +329,18 @@ define(function (require, exports, module) {
                 helpers.toggleCheckbox('input[name="jsonConvert"]', false);
             }).
             on('change', '.modal-footer input[name="jsonConvert"]', function () {
-                var insertButton = dialog.find('a[data-button-id="ok"]'),
-                    textareaVal = result.val();
+                var textareaVal = result.val();
                 
                 if (textareaVal.trim() !== '') {
                     if ($(this).is(':checked')) {
-                        insertButton.attr('disabled', true).prop('disabled', true);
                         generateJsonString();
+                        disableDialogOkButton();
                     } else {
-                        insertButton.attr('disabled', false).prop('disabled', false);
                         generateDirective();
+                        
+                        if (FileExtension.get() === 'js') {
+                            enableDialogOkButton();
+                        }
                     }
                 }
             });
@@ -314,5 +348,5 @@ define(function (require, exports, module) {
 		return promise;
 	}
     
-    exports.showOptionsDialog = showOptionsDialog;
+    exports.show = showOptionsDialog;
 });

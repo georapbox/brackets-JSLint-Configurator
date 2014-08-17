@@ -1,154 +1,157 @@
 <div class="georapbox-jslint-settings-dialog modal">
     <div class="modal-header">
-        <h1 class="dialog-title">JSLint Configurator</h1>
-        <a href="#" class="btn primary clear-options">clear options</a>
+        <h1 class="dialog-title">{{DIALOG_TITLE}}</h1>
+        
+        <div class="header-options">
+            <a href="#" class="btn primary clear-options">{{CLEAR_OPTIONS}}</a>
+        </div>
     </div>
     <div class="modal-body">
         <div class="field-container clearfix">            
             <div class="column">
-                <h3>Assume...</h3>
+                <h3>{{ASSUME}}...</h3>
                 
                 <div title="browser">
                     <button></button>
-                    <var class="default">default</var> a browser
+                    <var class="default">default</var> {{BROWSER}}
                 </div>
                 <div title="couch">
                     <button></button>
-                    <var class="default">default</var> <a href="http://couchdb.apache.org/">CouchDB</a>
+                    <var class="default">default</var> <a href="http://couchdb.apache.org/">{{COUCH}}</a>
                 </div>
                 <div title="devel">
                     <button></button>
-                    <var class="default">default</var> console, alert, ...
+                    <var class="default">default</var> {{DEVEL}}
                 </div>
                 <div title="node">
                     <button></button>
-                    <var class="default">default</var> <a href="http://nodejs.org/">Node.js</a>
+                    <var class="default">default</var> <a href="http://nodejs.org/">{{NODE}}</a>
                 </div>
                 <div title="rhino">
                     <button></button>
-                    <var class="default">default</var> <a href="https://developer.mozilla.org/en-US/docs/Rhino">Rhino</a>
+                    <var class="default">default</var> <a href="https://developer.mozilla.org/en-US/docs/Rhino">{{RHINO}}</a>
                 </div>
                 <div title="passfail">
                     <button></button>
-                    <var class="default">default</var> Stop on first error
+                    <var class="default">default</var> {{PASSFAIL}}
                 </div>
             </div>
             
             <div class="column">
-                <h3>Tolerate...</h3>
+                <h3>{{TOLERATE}}...</h3>
                 
                 <div title="ass">
                     <button></button>
-                    <var class="default">default</var> assignment expressions
+                    <var class="default">default</var> {{ASS}}
                 </div>
                 <div title="bitwise">
                     <button></button>
-                    <var class="default">default</var> bitwise operators
+                    <var class="default">default</var> {{BITWISE}}
                 </div>
                 <div title="closure">
                     <button></button>
-                    <var class="default">default</var> <a href="https://developers.google.com/closure/">Google Closure</a>
+                    <var class="default">default</var> <a href="https://developers.google.com/closure/">{{CLOSURE}}</a>
                 </div>
                 <div title="continue">
                     <button></button>
-                    <var class="default">default</var> continue
+                    <var class="default">default</var> {{CONTINUE}}
                 </div>
                 <div title="debug">
                     <button></button>
-                    <var class="default">default</var> debugger statements
+                    <var class="default">default</var> {{DEBUG}}
                 </div>
                 <div title="eqeq">
                     <button></button>
-                    <var class="default">default</var> == and !=
+                    <var class="default">default</var> {{EQEQ}}
                 </div>
             </div>
             
             <div class="column">
-                <h3>Tolerate...</h3>
+                <h3>{{TOLERATE}}...</h3>
                 
                 <div title="evil">
                     <button></button>
-                    <var class="default">default</var> eval
+                    <var class="default">default</var> {{EVIL}}
                 </div>
                 <div title="forin">
                     <button></button>
-                    <var class="default">default</var> <a href="http://yuiblog.com/blog/2006/09/26/for-in-intrigue/">unfiltered</a> for in
+                    <var class="default">default</var> <a href="http://yuiblog.com/blog/2006/09/26/for-in-intrigue/">{{FORIN}}</a>
                 </div>
                 <div title="newcap">
                     <button></button>
-                    <var class="default">default</var> uncapitalized constructors
+                    <var class="default">default</var> {{NEWCAP}}
                 </div>
                 <div title="nomen">
                     <button></button>
-                    <var class="default">default</var> dangling _ in identifiers
+                    <var class="default">default</var> {{NOMEN}}
                 </div>
                 <div title="plusplus">
                     <button></button>
-                    <var class="default">default</var> ++ and --
+                    <var class="default">default</var> {{PLUSPLUS}}
                 </div>
                 <div title="regexp">
                     <button></button>
-                    <var class="default">default</var> . and [^...] in /RegExp/
+                    <var class="default">default</var> {{REGEXP}}
                 </div>
                 <div title="unparam">
                     <button></button>
-                    <var class="default">default</var> unused parameters
+                    <var class="default">default</var> {{UNPARAM}}
                 </div>
             </div>
             
             <div class="column">
-                <h3>Tolerate...</h3>
+                <h3>{{TOLERATE}}...</h3>
                
                 <div title="sloppy">
                     <button></button>
-                    <var class="default">default</var> missing 'use strict' pragma
+                    <var class="default">default</var> {{SLOPPY}}
                 </div>
                 <div title="stupid">
                     <button></button>
-                    <var class="default">default</var> stupidity
+                    <var class="default">default</var> {{STUPID}}
                 </div>
                 <div title="sub">
                     <button></button>
-                    <var class="default">default</var> inefficient subscripting
+                    <var class="default">default</var> {{SUB}}
                 </div>
                 <div title="todo">
                     <button></button>
-                    <var class="default">default</var> TODO comments
+                    <var class="default">default</var> {{TODO}}
                 </div>
                 <div title="vars">
                     <button></button>
-                    <var class="default">default</var> many var statements per function
+                    <var class="default">default</var> {{VARS}}
                 </div>
                 <div title="white">
                     <button></button>
-                    <var class="default">default</var> messy white space
+                    <var class="default">default</var> {{WHITE}}
                 </div>
             </div>
             
             <div class="column last">
-                <input title="indent" type="number" min="0"><label title="indent">Indentation</label><br/>
-                <input title="maxlen" type="number" min="0"><label title="maxlen">Maximum line length</label><br/>
-                <input title="maxerr" type="number" min="0"><label title="maxerr">Maximum number of errors</label>
+                <input title="indent" type="number" min="0"><label title="indent">{{INDENT}}</label><br/>
+                <input title="maxlen" type="number" min="0"><label title="maxlen">{{MAXLEN}}</label><br/>
+                <input title="maxerr" type="number" min="0"><label title="maxerr">{{MAXERR}}</label>
             </div>
         </div>
     </div>
     
     <div class="modal-footer first">
         <div class="field-container clearfix">
-            <h2>JSLint Directive</h2>
+            <h2>{{DIRECTIVE_TITLE}}</h2>
             <div class="textarea-options">
-                <a class="select-button" href="#">Select</a> |
-                <a class="extract-button" href="#">Extract to file</a>    
+                <a class="select-button" href="#">{{SELECT}}</a> |
+                <a class="extract-button" href="#">{{EXTRACT}}</a>    
             </div>
             <textarea id="georapbox-jsl-conf-result" readonly required></textarea>
-            <p style="float:left;color:#787878;margin:0;"><em><span style="font-weight:bold;">Hint:</span> Always insert the JSLint directive in the first line of the document.</em></p>
-            <p style="float:right;margin:0;"><label><input type="checkbox" name="jsonConvert"> Convert to JSON</label></p>
+            <p style="float:left;color:#787878;margin:0;"><em>{{{HINT}}}</em></p>
+            <p style="float:right;margin:0;"><label><input type="checkbox" name="jsonConvert"> {{JSON_CONVERT}}</label></p>
         </div>	
     </div>
        
    <div class="modal-footer last">
-        <a href="http://www.jslint.com/lint.html#options">Click here for more details on JSLint options</a>
-        <a href="#" class="dialog-button btn primary" data-button-id="ok">Insert directive to document</a>
-        <a href="#" class="dialog-button btn" data-button-id="cancel">{{CANCEL}}</a>
+        <a style="float:left;" href="http://www.jslint.com/lint.html#options">{{JSLINT_INFO}}</a>
+        <a href="#" class="dialog-button btn primary" data-button-id="ok">{{DIALOG_OK}}</a>
+        <a href="#" class="dialog-button btn" data-button-id="cancel">{{DIALOG_CANCEL}}</a>
     </div>
 </div>

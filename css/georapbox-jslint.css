@@ -1,6 +1,25 @@
+/* Toolbar icon */
+#georapbox-jslint-config-icon {
+    background: url(../images/georapbox-jslint-icon.svg) no-repeat 0 0;
+}
+
+/* 
+ * ===========================
+ *       JSLINT DIALOG 
+ * ===========================
+*/
 .georapbox-jslint-settings-dialog {
     width: 55%;
 }
+
+/* Dialog header */
+.georapbox-jslint-settings-dialog .header-options {
+    position: absolute;
+    top: 11px;
+    right: 15px;
+}
+
+/* Dialog footer */
 .georapbox-jslint-settings-dialog .modal-footer.first {
     text-align: left;
     padding-bottom: 5px;
@@ -49,11 +68,8 @@
     resize: vertical;
     cursor: default;
 }
-.georapbox-jslint-settings-dialog a.clear-options {
-    position: absolute;
-    top: 11px;
-    right: 15px;
-}
+
+/* Dialog body */
 .georapbox-jslint-settings-dialog button {
     background-color: #B0C4DE;
     color: #000;
@@ -135,6 +151,7 @@
 	cursor: default;
 }
 
+/* Media queries */
 @media only screen and (max-width: 1366px) {
     .georapbox-jslint-settings-dialog {
         width: 80%;
