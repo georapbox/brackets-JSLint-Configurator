@@ -6,6 +6,6 @@ define(function (require, exports, module) {
     module.exports = {
         root: true,
         el: true,
-        it: false
+        it: true
     };
 });
