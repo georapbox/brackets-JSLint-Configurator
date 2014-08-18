@@ -29,6 +29,9 @@ Check the desired options, click the **'Insert directive to document'** button..
 
 #Changelog
 
+### 1.1.4
+- Add Italian localization. Credits to [@Denisov21](https://github.com/Denisov21) for his contribution in the translation.
+
 ### 1.1.3
 - Display toolbar icon when current document is of "Javascript" type.
 - Insert JSLint directive only in Javascript files.
