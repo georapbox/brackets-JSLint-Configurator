@@ -27,10 +27,17 @@ Check the desired options, click the **'Insert directive to document'** button..
 
 **Hint:** The configurator always inserts the JSLint directive in the first line of the document. Therefore, every time the dialog opens, it checks if the first line of the document has a JSLint directive and populates the appropriate options.
 
-#Changelog
+##Localization
+The extension is translated in the following languages:
+
+- English (default)
+- Greek
+- Italian
+
+##Changelog
 
 ### 1.1.4
-- Add Italian localization. Credits to [@Denisov21](https://github.com/Denisov21) for his contribution in the translation.
+- Add Italian locale. Credits to [@Denisov21](https://github.com/Denisov21) for his contribution in the translation.
 
 ### 1.1.3
 - Display toolbar icon when current document is of "Javascript" type.
