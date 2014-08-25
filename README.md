@@ -36,6 +36,9 @@ The extension is translated in the following languages:
 
 ##Changelog
 
+### 1.1.5
+- Add Spanish locale.
+
 ### 1.1.4
 - Add Italian locale. Credits to [@Denisov21](https://github.com/Denisov21) for his contribution in the translation.
 
