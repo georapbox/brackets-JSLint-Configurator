@@ -36,6 +36,9 @@ The extension is translated in the following languages:
 
 ##Changelog
 
+### 1.1.7
+- Update toolbar icon.
+
 ### 1.1.6
 - UI minor updates to conform to dark themes after Bracket's update to v0.43.
 

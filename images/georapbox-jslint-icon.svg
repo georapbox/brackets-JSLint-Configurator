@@ -1,64 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   version="1.1"
-   width="24"
-   height="24"
-   viewBox="0 0 64 64" 
-   enable-background="new 0 0 64 64"
-   id="svg2985">
-  <defs
-     id="defs2987" />
-  <metadata
-     id="metadata2990">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     id="layer1">
-    <g
-       transform="translate(-2.440333,2.5722742)"
-       id="layer1-9">
-      <text
-         x="7.5822659"
-         y="54.283947"
-         transform="scale(0.99572802,1.0042903)"
-         id="text3915"
-         xml:space="preserve"
-         style="font-size:38.71352768px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#bbbbbb;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"><tspan
-           x="7.5822659"
-           y="54.283947"
-           id="tspan3917"
-           style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;letter-spacing:-2.92287183px;fill:#bbbbbb;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"><tspan
-   id="tspan3793"
-   style="font-weight:bold;-inkscape-font-specification:Sans Bold">JS</tspan>Lint</tspan></text>
-      <text
-         x="8.3112783"
-         y="62.915123"
-         id="text4500"
-         xml:space="preserve"
-         style="font-size:25.51945496px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#bbbbbb;fill-opacity:1;stroke:none;font-family:Sans"><tspan
-           x="8.3112783"
-           y="62.915123"
-           id="tspan4502"
-           style="font-style:normal;font-weight:normal;letter-spacing:0.89999998px;-inkscape-font-specification:Sans" /></text>
-    </g>
-    <path
-       d="m 47.951081,18.797321 -0.05269,-4.196626 -2.277747,-0.777955 c -0.868441,-0.296603 -1.572355,-0.948091 -1.934396,-1.791325 -1.51e-4,-2.98e-4 -3.13e-4,-6.87e-4 -4.72e-4,-0.001 -0.363056,-0.845341 -0.35044,-1.804932 0.03411,-2.640744 L 44.725257,7.2041543 41.720518,4.2739332 39.561234,5.33378 c -0.825442,0.4051668 -1.785775,0.4419593 -2.639431,0.100388 -3.8e-4,-1.467e-4 -7.53e-4,-2.169e-4 -0.0011,-3.649e-4 C 36.06809,5.0927775 35.39998,4.4064211 35.081508,3.5450916 L 34.24646,1.2874143 30.04991,1.3401023 29.271955,3.6178506 c -0.296601,0.868448 -0.948091,1.5722803 -1.791322,1.9344005 -3.78e-4,1.553e-4 -6.89e-4,3.105e-4 -0.0011,4.098e-4 -0.845338,0.3631292 -1.805007,0.3504418 -2.640895,-0.034094 L 22.65317,4.5131933 19.72295,7.5179267 20.782872,9.677285 c 0.405168,0.825445 0.441886,1.785856 0.10039,2.639586 -1.46e-4,3.04e-4 -2.92e-4,6.94e-4 -4.4e-4,9.91e-4 -0.340981,0.85259 -1.027414,1.520625 -1.888594,1.839096 l -2.257648,0.834964 0.05269,4.196626 2.277671,0.77788 c 0.868449,0.296602 1.57228,0.94809 1.934398,1.791247 1.56e-4,3.75e-4 2.37e-4,7.47e-4 4.11e-4,0.0011 0.363134,0.845413 0.350519,1.805157 -0.03401,2.640969 l -1.00545,2.18544 3.004735,2.930221 2.159357,-1.059848 c 0.825444,-0.405166 1.785856,-0.44196 2.639512,-0.100389 3.79e-4,1.46e-4 7.51e-4,2.94e-4 0.0011,4.41e-4 0.852591,0.340979 1.520549,1.027339 1.839096,1.888593 l 0.835052,2.257722 4.196552,-0.05269 0.773068,-2.263239 c 0.299375,-0.876576 0.956526,-1.587288 1.807346,-1.953587 3.77e-4,-1.55e-4 6.89e-4,-3.12e-4 0.0011,-4.79e-4 0.837201,-0.360603 1.78801,-0.348563 2.616143,0.03244 l 2.199071,1.011604 2.930218,-3.004733 -1.060472,-2.16056 c -0.404775,-0.824694 -0.441411,-1.784198 -0.100108,-2.637095 1.51e-4,-3.79e-4 2.97e-4,-6.95e-4 4.48e-4,-0.0011 0.341341,-0.853431 1.028452,-1.522006 1.890533,-1.840864 l 2.256148,-0.834347 z m -15.535485,3.811287 c -3.155808,0.03962 -5.746216,-2.486472 -5.785835,-5.642206 -0.03962,-3.155732 2.48655,-5.746142 5.642359,-5.785763 3.155733,-0.03962 5.746067,2.486553 5.785687,5.642284 0.03962,3.155734 -2.486477,5.746066 -5.642211,5.785685 z"
-       id="gear-icon"
-       style="fill:#bbbbbb;fill-opacity:1" />
-  </g>
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+<g>
+	<path fill="#BBBBBB" d="M55.25,50.333c-0.014,0.008-0.015,0.009-0.028,0.016c0.309-0.184,0.939-0.585,1.236-0.932
+		c0.5-0.583,1.51-1.356,1.042-1.833c-0.613-0.625-2.167,0.333-3.333,0.167C53,47.583,53,45.625,49.5,45.625s-6.083-1.167-7.75-0.792
+		c-1.466,0.33-2.695,1.167-4.167,0.25c-0.152-0.094-0.271-0.191-0.384-0.288l-20.701,7.062c0.495,1.341,2.042,2.871,6.168,3.809
+		c7.333,1.667,8.542,0.083,12.042,0c3.5-0.083,9.388,0.903,11.208-0.083c1-0.542,1.667-2.25-0.542-2.042
+		c-0.999,0.094-0.167-0.958,2.083-0.875c2.25,0.083,9.152,1.05,10.208-2.292C58.154,48.833,56,49.917,55.25,50.333z"/>
+	<polygon fill="#BBBBBB" points="25.742,39.485 16.245,-1.93 14.296,-1.483 23.816,40.032 	"/>
+	<polygon fill="#BBBBBB" points="36.281,42.996 35.909,40.854 32.275,39.71 28.117,40.891 27.153,41.164 26.19,41.437 24.263,41.984 23.3,42.257 
+		22.337,42.531 20.033,43.185 15.374,47.721 15.779,49.99 16.43,49.768 31.255,44.711 	"/>
+</g>
 </svg>

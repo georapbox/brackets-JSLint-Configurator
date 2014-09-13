@@ -1,6 +1,6 @@
 /*global define */
 
-// Greek Translation
+// Greek - strings
 define({
     'COMMAND_NAME'       : 'JSLint Διαμορφωτής',
     /* DIALOG HEADER */
