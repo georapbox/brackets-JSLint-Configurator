@@ -36,6 +36,9 @@ The extension is translated in the following languages:
 
 ##Changelog
 
+### 1.1.8
+- Fixed "Extract to file" functionality issues due to deprecated method calls.
+
 ### 1.1.7
 - Update toolbar icon.
 
