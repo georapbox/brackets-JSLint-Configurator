@@ -3,7 +3,7 @@
     "title": "JSLint Configurator",
     "description": "Enables configuration of JSLint options. Extract JSLint options to JSON.",
     "homepage": "https://github.com/georapbox/brackets-JSLint-Configurator",
-    "version": "1.1.8",
+    "version": "1.1.9",
     "author": "George Raptis <georapbox@gmail.com> (http://georap.gr)",
     "license": "MIT",
     "keywords": [
