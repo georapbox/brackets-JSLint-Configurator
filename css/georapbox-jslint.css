@@ -9,10 +9,20 @@
  * ===========================
 */
 .georapbox-jslint-settings-dialog {
-	width: 55%;
+	width: 680px !important;
+}
+
+.georapbox-jslint-settings-dialog .modal-body {
+    max-height: 350px;
 }
 
 /* Dialog header */
+.georapbox-jslint-settings-dialog .modal-header h1 {
+    padding-bottom: 2px;
+    font-size: 28px;
+    line-height: 28px;
+}
+
 .georapbox-jslint-settings-dialog .header-options {
     position: absolute;
     top: 11px;
@@ -93,7 +103,7 @@
 }
 .georapbox-jslint-settings-dialog .column {
     float: left;
-    width: 31%;
+    width: 46%;
     margin: 0 2% 2% 0;
 }
 .georapbox-jslint-settings-dialog .column div {
@@ -131,6 +141,7 @@
     border-radius: 0px 3px 3px 0px;
     color: #808080;
     font-family: serif;
+    font-style: inherit;
     display: inline-block;
     padding: 0 0.5em;
     width: 40px;
@@ -167,8 +178,8 @@
 }
 
 /* Media queries */
-@media only screen and (max-width: 1366px) {
+/*@media only screen and (max-width: 1366px) {
     .georapbox-jslint-settings-dialog {
         width: 80%;
     }
-}
+}*/

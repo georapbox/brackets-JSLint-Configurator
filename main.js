@@ -40,8 +40,7 @@ define(function (require, exports, module) {
         toolbarIcon.on('click', OptionsDialog.show).
             appendTo('#main-toolbar .buttons');
 
-        toggleIconVisibility();
-
-        $(DocumentManager).on('currentDocumentChange', toggleIconVisibility);
+        //toggleIconVisibility();
+        //$(DocumentManager).on('currentDocumentChange', toggleIconVisibility);
     });
 });

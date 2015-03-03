@@ -206,7 +206,7 @@ define(function (require, exports, module) {
         function openFile(content, fileExtension) {
             var counter = 1,
                 doc = DocumentManager.createUntitledDocument(counter, fileExtension);
-			
+
             doc.setText(content);
         }
 
@@ -253,6 +253,9 @@ define(function (require, exports, module) {
         inputs = dialog.find('.modal-body').find('input[type="number"]');   // dialog inputs
         inputsLen = inputs.length;                                          // inputs length
         result = dialog.find('#georapbox-jsl-conf-result');			        // result placeholder
+
+        // Tweak ".modal-wrapper" width, to center align the modal instance.
+        dialog.parent().parent().css({ width: 680 });
 
         getDirectiveFromEditor();
 
