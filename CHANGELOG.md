@@ -1,5 +1,8 @@
 #Changelog
 
+### 1.1.10
+- Update documentation link.
+
 ### 1.1.9
 - Update UI to conform with Brackets v1.2.
 - Change Toolbar icon.
