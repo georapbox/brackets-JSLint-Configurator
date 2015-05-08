@@ -33,3 +33,5 @@ The extension is translated in the following languages:
 - English (default)
 - Greek
 - Italian
+- Spanish
+- French

@@ -1,5 +1,8 @@
 #Changelog
 
+### 1.1.11
+- French translation.
+
 ### 1.1.10
 - Update documentation link.
 
