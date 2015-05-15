@@ -254,9 +254,6 @@ define(function (require, exports, module) {
         inputsLen = inputs.length;                                          // inputs length
         result = dialog.find('#georapbox-jsl-conf-result');			        // result placeholder
 
-        // Tweak ".modal-wrapper" width, to center align the modal instance.
-        dialog.parent().parent().css({ width: 680 });
-
         getDirectiveFromEditor();
 
         if (FileExtension.get() !== 'js') {
