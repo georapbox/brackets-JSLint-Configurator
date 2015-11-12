@@ -1,5 +1,8 @@
 #Changelog
 
+### 1.1.13
+- Remove "ass" directive
+
 ### 1.1.11
 - French translation.
 
